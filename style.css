@@ -44,21 +44,24 @@ body {
   left: -50%;
   width: 200%;
   height: 200%;
-  background: repeating-linear-gradient(
-    transparent,
-    var(--aurora-1) 10%,
-    transparent 20%,
-    var(--aurora-2) 30%,
-    transparent 40%
-  );
+  background: repeating-linear-gradient(transparent,
+      var(--aurora-1) 10%,
+      transparent 20%,
+      var(--aurora-2) 30%,
+      transparent 40%);
   filter: blur(80px);
   animation: rotate-aurora 30s linear infinite;
   opacity: 0.5;
 }
 
 @keyframes rotate-aurora {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 /* Glassmorphism Classes */
@@ -117,6 +120,7 @@ header {
   margin-bottom: 1rem;
   background: linear-gradient(to right, #fff, var(--accent-green));
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
   font-weight: 700;
 }
@@ -176,6 +180,108 @@ h2 {
   object-fit: cover;
   border-radius: 12px;
   margin-bottom: 1.5rem;
+}
+
+.main-title {
+  font-size: 4rem;
+  margin-bottom: 0;
+}
+
+.subtitle {
+  color: var(--text-muted);
+  font-size: 1.2rem;
+}
+
+.support-badge {
+  display: inline-block;
+  padding: 0.5rem 1.5rem;
+  margin-top: 1rem;
+  border: 1px solid var(--accent-green);
+}
+
+@media (max-width: 768px) {
+  .main-title {
+    font-size: 2.2rem;
+  }
+
+  .subtitle {
+    font-size: 1rem;
+    padding: 0 1rem;
+  }
+
+  .support-badge {
+    width: 100%;
+    padding: 1rem;
+  }
+
+  header {
+    padding: 0 1rem;
+    height: auto;
+    flex-direction: column;
+    padding-bottom: 1rem;
+  }
+
+  .logo {
+    padding: 1rem 0;
+  }
+
+  .nav-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem;
+  }
+
+  .nav-links a {
+    margin: 0.5rem;
+    font-size: 0.9rem;
+  }
+
+  .hero h1 {
+    font-size: 3rem;
+  }
+
+  .hero p {
+    font-size: 1.1rem;
+  }
+
+  section {
+    padding: 4rem 0;
+  }
+
+  h2 {
+    font-size: 2rem;
+  }
+
+  .container {
+    padding: 0 1rem;
+  }
+
+  .itinerary-step {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .step-number {
+    font-size: 2rem;
+    opacity: 0.5;
+    margin-bottom: -1rem;
+    z-index: 1;
+    padding-left: 1rem;
+  }
+
+  .step-content {
+    padding: 1.5rem !important;
+    width: 100%;
+  }
+
+  .day-header {
+    margin: 3rem 0 1.5rem;
+  }
+
+  .day-header h2 {
+    font-size: 1.8rem;
+  }
 }
 
 footer {
