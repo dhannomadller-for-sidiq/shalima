@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Arctic Glow | Russia Northern Light Guide</title>
-  <meta name="description" content="Complete travel guide for Murmansk, Russia. Hunt the Northern Lights, visit Teriberka, and explore the Arctic coast.">
+  <meta name="description"
+    content="Complete travel guide for Murmansk, Russia. Hunt the Northern Lights, visit Teriberka, and explore the Arctic coast.">
   <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
   <div class="aurora-bg">
     <div class="aurora-layer"></div>
@@ -28,10 +31,38 @@
     <section class="hero">
       <div class="hero-content">
         <h1>Witness the Dance of<br><span style="color: var(--accent-purple);">the Arctic Lights</span></h1>
-        <p>Expert guiding for your unforgettable journey to Murmansk, Russia. Experience the magic above the Arctic Circle.</p>
+        <p>Expert guiding for your unforgettable journey to Murmansk, Russia. Experience the magic above the Arctic
+          Circle.</p>
         <a href="itinerary.html" class="btn-primary">View Full Plan</a>
+
+        <!-- COUNTDOWN CARD -->
+        <div class="glass"
+          style="margin-top: 3rem; padding: 1.5rem 3rem; border: 1px solid var(--accent-green); display: inline-block;">
+          <p
+            style="text-transform: uppercase; font-size: 0.8rem; letter-spacing: 2px; color: var(--accent-green); margin-bottom: 0.5rem;">
+            Countdown to Arctic Adventure</p>
+          <div id="countdown" style="font-size: 2.5rem; font-weight: 700; color: white; font-family: monospace;">00d :
+            00h : 00m : 00s</div>
+        </div>
       </div>
     </section>
+
+    <script>
+      const countdownDate = new Date("April 1, 2026 00:00:00").getTime();
+      const x = setInterval(function () {
+        const now = new Date().getTime();
+        const distance = countdownDate - now;
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+        document.getElementById("countdown").innerHTML = days + "d : " + hours + "h : " + minutes + "m : " + seconds + "s";
+        if (distance < 0) {
+          clearInterval(x);
+          document.getElementById("countdown").innerHTML = "ENJOY THE ARCTIC!";
+        }
+      }, 1000);
+    </script>
 
     <section class="container">
       <h2>Highlights of the Trip</h2>
@@ -44,7 +75,8 @@
         <div class="card glass">
           <img src="assets/teriberka_ship_graveyard_1774194485746.png" alt="Teriberka">
           <h3>Teriberka Village</h3>
-          <p>Explore the edge of the world. Visit the ship graveyard and witness the Barents Sea crashing on the shore.</p>
+          <p>Explore the edge of the world. Visit the ship graveyard and witness the Barents Sea crashing on the shore.
+          </p>
         </div>
         <div class="card glass">
           <img src="assets/sami_village_reindeer_1774194503873.png" alt="Sami Village">
@@ -56,9 +88,12 @@
 
     <section class="container glass" style="margin-top: 4rem; text-align: center; padding: 4rem;">
       <h2>Ready for the Arctic?</h2>
-      <p style="font-size: 1.2rem; margin-bottom: 2rem;">Discover the cost, logistics, and navigation to make your trip seamless.</p>
+      <p style="font-size: 1.2rem; margin-bottom: 2rem;">Discover the cost, logistics, and navigation to make your trip
+        seamless.</p>
       <div style="display: flex; gap: 1rem; justify-content: center;">
-        <a href="guide.html" class="btn-primary" style="background: transparent; border: 2px solid var(--accent-green); color: var(--accent-green);">Check Logistics</a>
+        <a href="guide.html" class="btn-primary"
+          style="background: transparent; border: 2px solid var(--accent-green); color: var(--accent-green);">Check
+          Logistics</a>
         <a href="destinations.html" class="btn-primary">Explore Places</a>
       </div>
     </section>
@@ -68,4 +103,5 @@
     <p>&copy; 2026 Arctic Glow Travel Guide. Explore Murmansk with Us.</p>
   </footer>
 </body>
+
 </html>
