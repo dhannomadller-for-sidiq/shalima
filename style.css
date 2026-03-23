@@ -282,6 +282,17 @@ h2 {
   .day-header h2 {
     font-size: 1.8rem;
   }
+
+  .log-item {
+    grid-template-columns: 1fr !important;
+    text-align: center;
+    gap: 1rem !important;
+    padding: 1.5rem !important;
+  }
+
+  .icon {
+    font-size: 3rem;
+  }
 }
 
 footer {
