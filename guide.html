@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel Guider | Arctic Glow</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .log-item {
+            display: grid;
+            grid-template-columns: 100px 1fr;
+            gap: 2rem;
+            margin-bottom: 2rem;
+            padding: 2rem;
+        }
+
+        .icon {
+            font-size: 2rem;
+            color: var(--accent-green);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="aurora-bg">
+        <div class="aurora-layer"></div>
+    </div>
+    <header>
+        <div class="logo">
+            <h3 style="font-weight: 700; color: var(--accent-green);">ARCTIC GLOW</h3>
+        </div>
+        <nav class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="itinerary.html">Itinerary</a>
+            <a href="destinations.html">Destinations</a>
+            <a href="guide.html">Guider</a>
+        </nav>
+    </header>
+
+    <main class="container">
+        <h1 style="margin-top: 4rem; margin-bottom: 1rem;">Travel Logistics & Costs</h1>
+        <p style="color: var(--text-muted); margin-bottom: 4rem;">Everything you need to know for a smooth trip.</p>
+
+        <div class="grid">
+            <div class="log-item glass">
+                <div class="icon">💰</div>
+                <div>
+                    <h3>Estimated Costs</h3>
+                    <ul>
+                        <li>Aurora Hunt (5h): ₽6,500 - ₽8,000</li>
+                        <li>Full Day Teriberka: ₽12,000</li>
+                        <li>Average Meal: ₽1,200</li>
+                        <li>Hotel room: ₽3,500 - ₽7,000 / night</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="log-item glass">
+                <div class="icon">🧭</div>
+                <div>
+                    <h3>Navigation</h3>
+                    <p>Download <strong>Yandex Maps</strong>. It is significantly more accurate than Google Maps in
+                        Russia for public transport and offline use.</p>
+                    <p>Taxi: Use <a href="https://taxi.yandex.ru/" target="_blank"
+                            style="color: var(--accent-green); text-decoration: underline; font-weight: 700;">Yandex
+                            Go</a> app for reliable and cheap rides.</p>
+                </div>
+            </div>
+
+            <div class="log-item glass">
+                <div class="icon">⌛</div>
+                <div>
+                    <h3>Best Time</h3>
+                    <p>Season: <strong>October to March</strong></p>
+                    <p>Peak Viewing: <strong>20:00 - 02:00</strong></p>
+                    <p>Sunset is around 2 PM and Sunrise at 11 AM in peak winter (January).</p>
+                </div>
+            </div>
+
+            <div class="log-item glass">
+                <div class="icon">❄️</div>
+                <div>
+                    <h3>What to Pack</h3>
+                    <p>Thermal layers, warm socks, windproof gloves, and portable power banks.</p>
+                </div>
+            </div>
+
+            <div class="log-item glass" style="grid-column: 1 / -1; border: 1px solid var(--accent-purple);">
+                <div class="icon">🛡️</div>
+                <div>
+                    <h3>Solo Traveler Tips</h3>
+                    <p>Traveling solo in Russia is an incredible experience, but keep these essentials in mind:</p>
+                    <ul style="margin-top: 1rem; color: var(--text-muted); line-height: 1.6;">
+                        <li><strong>Internet:</strong> Get a local SIM at the airport (Terminal C has MTS/Megafon
+                            booths).</li>
+                        <li><strong>Money:</strong> Exchange cash (USD/EUR) at <strong>Komkom Bank</strong> for better
+                            rates. "Zolotaya Korona" is also an option for transfers.</li>
+                        <li><strong>Language:</strong> Most people in Murmansk won't speak English; Yandex Translate is
+                            your best friend.</li>
+                        <li><strong>Documents:</strong> Do not lose the <strong>Migration Card</strong> (small white
+                            paper) handed to you at immigration with your passport. Hotels are legally required to see
+                            it for your registration.</li>
+                        <li><strong>Safety:</strong> Share your real-time location with Nomadller support via
+                            WhatsApp/Telegram throughout the trip.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="log-item glass" style="border: 1px solid var(--accent-green); grid-column: 1 / -1;">
+                <div class="icon">📞</div>
+                <div style="width: 100%;">
+                    <h3>Support & Emergency Contacts</h3>
+                    <div style="display: flex; flex-wrap: wrap; gap: 2rem; margin-top: 1rem;">
+                        <div>
+                            <p style="font-size: 0.8rem; color: var(--text-muted);">Murmansk Support</p>
+                            <a href="tel:+79110604747"
+                                style="color: var(--accent-green); text-decoration: none; font-weight: 700;">+7 911
+                                060-47-47</a>
+                        </div>
+                        <div>
+                            <p style="font-size: 0.8rem; color: var(--text-muted);">Nomadller</p>
+                            <a href="tel:7902663277"
+                                style="color: var(--accent-green); text-decoration: none; font-weight: 700;">7902663277</a>
+                        </div>
+                        <div>
+                            <p style="font-size: 0.8rem; color: var(--text-muted);">Secondary</p>
+                            <a href="tel:8129163766"
+                                style="color: var(--accent-green); text-decoration: none; font-weight: 700;">8129163766</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Arctic Glow Travel Guide.</p>
+    </footer>
+</body>
+
+</html>

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Must Visit Places | Arctic Glow</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .dest-card {
+            position: relative;
+            height: 400px;
+            display: flex;
+            align-items: flex-end;
+            padding: 2rem;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .dest-card::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to top, rgba(5, 11, 24, 0.9), transparent);
+            border-radius: 20px;
+        }
+
+        .dest-content {
+            position: relative;
+            z-index: 1;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="aurora-bg">
+        <div class="aurora-layer"></div>
+    </div>
+    <header>
+        <div class="logo">
+            <h3 style="font-weight: 700; color: var(--accent-green);">ARCTIC GLOW</h3>
+        </div>
+        <nav class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="itinerary.html">Itinerary</a>
+            <a href="destinations.html">Destinations</a>
+            <a href="guide.html">Guider</a>
+        </nav>
+    </header>
+
+    <main class="container">
+        <h1 style="margin-top: 4rem; margin-bottom: 2rem;">Top Arctic Destinations</h1>
+        <div class="grid">
+            <div class="dest-card glass"
+                style="background-image: url('assets/teriberka_ship_graveyard_1774194485746.png');">
+                <div class="dest-content">
+                    <h3>Ship Graveyard</h3>
+                    <p>A hauntingly beautiful sight of abandoned ships at the edge of the world.</p>
+                </div>
+            </div>
+            <div class="dest-card glass"
+                style="background-image: url('assets/nuclear_icebreaker_lenin_1774194523284.png');">
+                <div class="dest-content">
+                    <h3>Icebreaker Lenin</h3>
+                    <p>A Soviet engineering marvel and a symbol of Polar exploration.</p>
+                </div>
+            </div>
+            <div class="dest-card glass"
+                style="background-image: url('assets/aurora_hero_cinematic_1774194444395.png');">
+                <div class="dest-content">
+                    <h3>Kola Bay</h3>
+                    <p>The main harbor of Murmansk with stunning views of the Arctic fleet.</p>
+                </div>
+            </div>
+            <div class="dest-card glass"
+                style="background-image: url('assets/sami_village_reindeer_1774194503873.png');">
+                <div class="dest-content">
+                    <h3>Alyosha Memorial</h3>
+                    <p>The iconic 35-meter statue overlooking the city and the bay.</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Arctic Glow Travel Guide.</p>
+    </footer>
+</body>
+
+</html>

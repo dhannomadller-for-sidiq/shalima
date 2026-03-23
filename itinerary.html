@@ -1,0 +1,825 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guest Itinerary | Arctic Glow</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .itinerary-step {
+            display: flex;
+            gap: 2rem;
+            margin-bottom: 3rem;
+            align-items: flex-start;
+            animation: fadeIn 0.8s ease-out forwards;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .step-number {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--accent-green);
+            opacity: 0.3;
+            min-width: 80px;
+            line-height: 1;
+        }
+
+        .step-content {
+            padding: 2rem;
+            flex-grow: 1;
+            position: relative;
+        }
+
+        .time-badge {
+            display: inline-block;
+            padding: 0.4rem 1.2rem;
+            background: var(--accent-purple);
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: #fff;
+        }
+
+        .day-header {
+            margin: 5rem 0 3rem;
+            border-left: 6px solid var(--accent-green);
+            padding-left: 1.5rem;
+        }
+
+        .day-header h2 {
+            text-align: left;
+            margin-bottom: 0.5rem;
+        }
+
+        .flight-info {
+            background: rgba(255, 255, 255, 0.03);
+            padding: 1rem;
+            border-radius: 12px;
+            margin-top: 1rem;
+            border: 1px dashed var(--glass-border);
+        }
+
+        .help-btn {
+            background: var(--accent-green);
+            color: var(--bg-dark);
+            border: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 8px;
+            font-weight: 700;
+            cursor: pointer;
+            margin-top: 1rem;
+            transition: all 0.3s;
+        }
+
+        .help-btn:hover {
+            box-shadow: 0 0 20px var(--accent-green);
+            transform: scale(1.05);
+        }
+
+        /* Modal / Info Box */
+        #terminal-help {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 1000;
+            width: 90%;
+            max-width: 500px;
+            padding: 3rem;
+            box-shadow: 0 0 100px rgba(0, 0, 0, 0.8);
+        }
+
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 999;
+        }
+
+        .russian-text {
+            background: rgba(55, 255, 139, 0.1);
+            padding: 1rem;
+            border-radius: 8px;
+            color: var(--accent-green);
+            font-size: 1.2rem;
+            margin-top: 1rem;
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 1rem;
+            right: 1.5rem;
+            font-size: 2rem;
+            cursor: pointer;
+            color: var(--text-muted);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="aurora-bg">
+        <div class="aurora-layer"></div>
+    </div>
+    <header>
+        <div class="logo">
+            <h3 style="font-weight: 700; color: var(--accent-green);">ARCTIC GLOW</h3>
+        </div>
+        <nav class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="itinerary.html">Itinerary</a>
+            <a href="destinations.html">Destinations</a>
+            <a href="guide.html">Guider</a>
+        </nav>
+    </header>
+
+    <main class="container">
+        <div style="text-align: center; margin-top: 4rem;">
+            <h1 style="font-size: 4rem; margin-bottom: 0;">Special Guest Itinerary</h1>
+            <p style="color: var(--text-muted); font-size: 1.2rem;">Detailed schedule for your Russia Arctic journey</p>
+            <div class="glass"
+                style="display: inline-block; padding: 0.5rem 1.5rem; margin-top: 1rem; border: 1px solid var(--accent-green);">
+                <p style="margin: 0;">📞 Murmansk Contact: <a href="tel:+79216301315"
+                        style="color: var(--accent-green); text-decoration: none; font-weight: 700;">+7 921
+                        630-13-15</a></p>
+            </div>
+        </div>
+
+        <!-- DAY 1 -->
+        <div class="day-header">
+            <h2>Day 1: Wednesday, March 25th</h2>
+            <p style="color: var(--text-muted);">Long-haul Journey to Russia</p>
+        </div>
+
+        <div class="itinerary-step">
+            <div class="step-number">01</div>
+            <div class="itinerary-card card glass step-content" style="border: 1px solid var(--accent-purple);">
+                <span class="time-badge">08:10 AM</span>
+                <h3>Fly from Kochi to Moscow</h3>
+                <p>Departure from Kochi (COK) Terminal 3. <strong>Layover in Muscat (5h 10m).</strong></p>
+                <div class="flight-info" style="margin-bottom: 1rem;">
+                    <p><strong>Route:</strong> Kochi ➔ Muscat ➔ Moscow</p>
+                    <p><strong>Layover:</strong> Muscat (5h 10m)</p>
+                </div>
+                <div
+                    style="background: rgba(255, 171, 0, 0.1); padding: 1rem; border-left: 4px solid #ffab00; margin-bottom: 1rem;">
+                    <p style="margin: 0; color: #ffab00; font-weight: 700;">⚠️ CRITICAL: Migration Card</p>
+                    <p style="margin: 0.5rem 0 0 0; font-size: 0.9rem;">At Moscow immigration, you will receive a small
+                        white <strong>Arrival/Migration Card</strong> along with your passport. <strong>Do NOT lose
+                            this!</strong> You must present it at every hotel check-in.</p>
+                </div>
+                <a href="https://drive.google.com/file/d/1e_ENY5ETwuT0LndsgC67gvLeaT-Ysxyn/view?usp=sharing"
+                    target="_blank" class="help-btn"
+                    style="background: var(--accent-purple); color: white; margin-right: 1rem; text-decoration: none; display: inline-block;">📄
+                    View Ticket</a>
+            </div>
+        </div>
+
+        <div class="itinerary-step">
+            <div class="step-number">02</div>
+            <div class="itinerary-card card glass step-content">
+                <span class="time-badge">21:10 (9:10 PM)</span>
+                <h3>Arrival at Moscow (SVO)</h3>
+                <p>Terminal C (International). You need to proceed to <strong>Terminal B</strong> for your domestic
+                    flight to Murmansk.</p>
+                <button class="help-btn" onclick="showHelp()">How to go to Terminal B?</button>
+                <p style="margin-top: 1rem; font-size: 0.9rem; color: var(--text-muted);">Taxi: Use <a
+                        href="https://taxi.yandex.ru/" target="_blank"
+                        style="color: var(--accent-green); text-decoration: underline;">Yandex Go</a> app for reliable
+                    rides.</p>
+                <p style="margin-top: 1rem; font-size: 0.9rem; color: var(--text-muted);">Wait at the airport area after
+                    transfer.</p>
+            </div>
+        </div>
+
+        <!-- DAY 2 -->
+        <div class="day-header">
+            <h2>Day 2: Thursday, March 26th</h2>
+            <p style="color: var(--text-muted);">Arrival in the Arctic & Northern Lights</p>
+        </div>
+
+        <div class="itinerary-step">
+            <div class="step-number">03</div>
+            <div class="itinerary-card card glass step-content">
+                <span class="time-badge">07:45 AM</span>
+                <h3>Fly to Murmansk</h3>
+                <p>Departure from Sheremetyevo Airport (SVO) <strong>Terminal B</strong>.</p>
+                <div class="flight-info">
+                    <p><strong>Flight:</strong> Aeroflot SU1318</p>
+                    <p><strong>Arrival:</strong> 10:40 AM (Murmansk Airport)</p>
+                </div>
+                <a href="https://drive.google.com/file/d/1TSrAzSTURoOvHW9WDwGgNNn9aXfUqGFg/view?usp=sharing"
+                    id="ticket-link-2" target="_blank" class="help-btn"
+                    style="background: var(--accent-purple); color: white; text-decoration: none; display: inline-block;">📄
+                    View Ticket</a>
+            </div>
+        </div>
+
+        <div class="itinerary-step">
+            <div class="step-number">04</div>
+            <div class="itinerary-card card glass step-content">
+                <span class="time-badge">11:30 AM</span>
+                <h3>Transfer & Ice Floating</h3>
+                <p>Land at Murmansk Airport. Picked up by transport and head directly to <strong>Ice Floating</strong>
+                    experience.</p>
+                <p style="margin-top: 0.5rem; color: var(--text-muted);">After the activity, you will be dropped at your
+                    hotel for rest.</p>
+                <a href="https://drive.google.com/file/d/1-C419VmCr-amWgcVIZhiQH9C8yxwtXCt/view?usp=sharing"
+                    target="_blank" class="help-btn"
+                    style="background: var(--accent-green); color: var(--bg-dark); text-decoration: none; display: inline-block; margin-top: 1rem;">🏨
+                    View Hotel Booking</a>
+            </div>
+        </div>
+
+        <div class="itinerary-step">
+            <div class="step-number">05</div>
+            <div class="itinerary-card card glass step-content" style="border: 1px solid var(--accent-green);">
+                <span class="time-badge" style="background: var(--accent-green); color: var(--bg-dark);">09:00 PM</span>
+                <h3>Northern Lights Hunting</h3>
+                <p>Pickup from hotel. Embark on the hunt for the Aurora Borealis in the deep Arctic wilderness.</p>
+                <p style="margin-top: 0.5rem; color: var(--text-muted);">Return and drop at hotel late night.</p>
+            </div>
+        </div>
+
+        <!-- DAY 3 -->
+        <div class="day-header">
+            <h2>Day 3: Friday, March 27th</h2>
+            <p style="color: var(--text-muted);">Husky Adventure & Second Aurora Hunt</p>
+        </div>
+
+        <div class="itinerary-step">
+            <div class="step-number">06</div>
+            <div class="itinerary-card card glass step-content">
+                <span class="time-badge">09:00 - 10:00 AM</span>
+                <h3>Transfer to Husky & Reindeer Park</h3>
+                <p>Pickup from your hotel. The start time is subject to the Husky Park’s final confirmation.</p>
+                <div class="flight-info" style="border-style: solid; border-color: var(--accent-purple);">
+                    <p><strong>Activities:</strong> Hugging huskies, sledding (husky, reindeer & snowmobile), Sami
+                        traditional clothes & history.</p>
+                    <p><strong>Lunch:</strong> Included at the park.</p>
+                </div>
+                <p style="margin-top: 1rem; font-size: 0.9rem; color: var(--accent-green);">Recommendation: Bring your
+                    passport. Dress very warmly for the forest!</p>
+            </div>
+        </div>
+
+        <div class="itinerary-step">
+            <div class="step-number">07</div>
+            <div class="itinerary-card card glass step-content">
+                <span class="time-badge">14:00 - 15:00 PM</span>
+                <h3>Return to Hotel</h3>
+                <p>Transfer back to the hotel for rest and preparation for the night hunt.</p>
+            </div>
+        </div>
+
+        <div class="itinerary-step">
+            <div class="step-number">08</div>
+            <div class="itinerary-card card glass step-content" style="border: 1px solid var(--accent-purple);">
+                <span class="time-badge">21:00 PM (Decision at 18:00)</span>
+                <h3>Aurora Hunting - 2nd Night</h3>
+                <p>At <strong>18:00</strong>, we will check the magnetic activity and sky forecast. If conditions are
+                    good, the hunt starts at 21:00.</p>
+                <div class="flight-info">
+                    <p><strong>Included:</strong> Transport, photos, hot tea and cookies.</p>
+                    <p><strong>Recommendation:</strong> Bright colored clothes for beautiful photos. Bring your
+                        passport.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- DAY 4 -->
+        <div class="day-header">
+            <h2>Day 4: Saturday, March 28th</h2>
+            <p style="color: var(--text-muted);">Expedition to the Edge of the World: Teriberka</p>
+        </div>
+
+        <div class="itinerary-step">
+            <div class="step-number">09</div>
+            <div class="itinerary-card card glass step-content">
+                <span class="time-badge">08:00 AM</span>
+                <h3>Transfer to Teriberka Village</h3>
+                <p>Pickup from your hostel. Journey to the shore of the Barents Sea, a marginal sea of the Arctic Ocean.
+                </p>
+                <div class="flight-info">
+                    <p><strong>On the way:</strong> 360-degree tundra, Stones’ Garden, and the world's largest Polar
+                        Wind Park.</p>
+                </div>
+                <p style="margin-top: 1rem; font-size: 0.9rem; color: #ffab00;">⚠️ Important: No WC facilities on the
+                    long drive. Avoid excessive fluids before departure.</p>
+            </div>
+        </div>
+
+        <div class="itinerary-step">
+            <div class="step-number">10</div>
+            <div class="itinerary-card card glass step-content">
+                <span class="time-badge">10:00 - 12:30</span>
+                <h3>Nature Park & Ship Yard</h3>
+                <p>Guided walking tour of the Teriberka Nature Park.</p>
+                <div class="flight-info" style="border-style: solid; border-color: var(--accent-green);">
+                    <p><strong>Sights:</strong> Dragon’s Eggs Beach, Dragon’s Lair, and the Red Rock Waterfall.</p>
+                    <p><strong>History:</strong> Visit the ancient ship breaking yard (ship graveyard).</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="itinerary-step">
+            <div class="step-number">11</div>
+            <div class="itinerary-card card glass step-content">
+                <span class="time-badge">12:30 - 14:00</span>
+                <h3>Seashore Lunch & Swings</h3>
+                <p>Enjoy a seafood lunch at a restaurant on the Barents Sea sandy beach (extra cost) and try the giant
+                    swings on the seashore.</p>
+                <p style="margin-top: 1rem; color: var(--accent-green);"><strong>Overnight:</strong> You will be staying
+                    overnight in Teriberka.</p>
+                <a href="https://drive.google.com/file/d/15fbvfUfNc8Jttu8-5hHC2okrKLlGCxqZ/view?usp=sharing"
+                    target="_blank" class="help-btn"
+                    style="background: var(--accent-green); color: var(--bg-dark); text-decoration: none; display: inline-block; margin-top: 1rem;">🏨
+                    View Hotel Booking</a>
+            </div>
+        </div>
+
+        <div class="glass" style="padding: 1.5rem; border: 1px solid rgba(255, 171, 0, 0.3); margin-top: 2rem;">
+            <p style="font-size: 0.9rem; color: #ffab00;"><strong>* Note:</strong> Timing is approximate and depends on
+                weather, road conditions, and group pace. The road to Teriberka may close during strong winds/snow; in
+                such cases, the trip will be rescheduled or cancelled.</p>
+        </div>
+
+        <!-- DAY 5 -->
+        <div class="day-header">
+            <h2>Day 5: Sunday, March 29th</h2>
+            <p style="color: var(--text-muted);">Departure from the Arctic</p>
+        </div>
+
+        <div class="itinerary-step">
+            <div class="step-number">12</div>
+            <div class="itinerary-card card glass step-content">
+                <span class="time-badge">11:30 AM</span>
+                <h3>Transfer to Murmansk Airport (MMK)</h3>
+                <p>Pickup from your hotel for the transfer back to the airport.</p>
+            </div>
+        </div>
+
+        <div class="itinerary-step">
+            <div class="step-number">13</div>
+            <div class="itinerary-card card glass step-content" style="border: 1px solid var(--accent-purple);">
+                <span class="time-badge">15:35 PM</span>
+                <h3>Departure Flight</h3>
+                <p>Flight from Murmansk Airport (MMK).</p>
+                <div class="flight-info">
+                    <p><strong>Flight:</strong> SU6396</p>
+                    <p><strong>Status:</strong> Departure to St. Petersburg</p>
+                </div>
+                <a href="https://drive.google.com/file/d/1IFCrh6mZD-ZyIpDzXTdWbrL4Q8VPyUWI/view?usp=sharing"
+                    target="_blank" class="help-btn"
+                    style="background: var(--accent-purple); color: white; text-decoration: none; display: inline-block;">📄
+                    View Ticket</a>
+            </div>
+        </div>
+
+        <div class="itinerary-step">
+            <div class="step-number">14</div>
+            <div class="itinerary-card card glass step-content">
+                <span class="time-badge">Arrival at St. Petersburg</span>
+                <h3>Transfer to Rossi Boutique Hotel</h3>
+                <p>Take a <a href="https://taxi.yandex.ru/" target="_blank"
+                        style="color: var(--accent-green); text-decoration: underline; font-weight: 700;">Yandex Go</a>
+                    taxi from the airport to your hotel.</p>
+                <div class="flight-info" style="border-style: solid; border-color: var(--accent-green);">
+                    <p><strong>Hotel:</strong> Rossi Boutique Hotel</p>
+                    <p><strong>Contact:</strong> <a href="tel:+79531692333"
+                            style="color: var(--accent-green); text-decoration: none; font-weight: 700;">+7 953
+                            169-23-33</a></p>
+                </div>
+                <a href="https://drive.google.com/file/d/1chQxKEVfjuQ5IWpGrW5z3V6lY4G0tWWi/view?usp=sharing"
+                    target="_blank" class="help-btn"
+                    style="background: var(--accent-green); color: var(--bg-dark); text-decoration: none; display: inline-block;">🏨
+                    View Booking Confirmation</a>
+            </div>
+        </div>
+
+        <!-- DAY 6 -->
+        <div class="day-header">
+            <h2>Day 6: Monday, March 30th</h2>
+            <p style="color: var(--text-muted);">Cultural Wonders of St. Petersburg</p>
+        </div>
+
+        <div class="itinerary-step">
+            <div class="step-number">15</div>
+            <div class="itinerary-card card glass step-content">
+                <span class="time-badge">Morning</span>
+                <h3>The Hermitage Museum</h3>
+                <p>Explore one of the world's largest and most prestigious museums, located in the Winter Palace.</p>
+            </div>
+        </div>
+
+        <div class="itinerary-step">
+            <div class="step-number">16</div>
+            <div class="itinerary-card card glass step-content">
+                <span class="time-badge">Afternoon</span>
+                <h3>Cathedrals Tour</h3>
+                <p>Visit the iconic architectural masterpieces of the city.</p>
+                <div class="flight-info" style="border-left: 4px solid var(--accent-purple);">
+                    <p>📍 <strong>St. Isaac's Cathedral:</strong> Massive gold dome with panoramic city views.</p>
+                    <p>📍 <strong>Kazan Cathedral:</strong> Inspired by St. Peter's Basilica in Rome.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="itinerary-step">
+            <div class="step-number">17</div>
+            <div class="itinerary-card card glass step-content" style="border: 1px solid var(--accent-purple);">
+                <span class="time-badge">Night</span>
+                <h3>Canal Ride & Bridge Opening</h3>
+                <p>Experience the magic of St. Petersburg from the water. Watch the majestic Neva River bridges open for
+                    the night.</p>
+                <p style="margin-top: 1rem; color: var(--text-muted);">Afterwards, return to your hotel: <strong>Rossi
+                        Boutique Hotel</strong>.</p>
+            </div>
+        </div>
+
+        <!-- DAY 7 -->
+        <div class="day-header">
+            <h2>Day 7: Tuesday, March 31st</h2>
+            <p style="color: var(--text-muted);">Return Flight to Moscow</p>
+        </div>
+
+        <div class="itinerary-step">
+            <div class="step-number">18</div>
+            <div class="itinerary-card card glass step-content" style="border: 1px solid var(--accent-purple);">
+                <span class="time-badge">10:30 AM</span>
+                <h3>Flight to Moscow</h3>
+                <p>Departure from <strong>Pulkovo Airport (LED)</strong>, Terminal 1.</p>
+                <div class="flight-info">
+                    <p><strong>Departure:</strong> 10:30 (LED)</p>
+                    <p><strong>Arrival:</strong> 12:00 (Sheremetyevo SVO, Terminal B)</p>
+                </div>
+                <a href="https://drive.google.com/file/d/1nLuGS77tvcoHFU1pzguNCD5E6KhB1Bwd/view?usp=sharing"
+                    target="_blank" class="help-btn"
+                    style="background: var(--accent-purple); color: white; text-decoration: none; display: inline-block;">📄
+                    View Ticket</a>
+            </div>
+        </div>
+
+        <div class="itinerary-step">
+            <div class="step-number">19</div>
+            <div class="itinerary-card card glass step-content">
+                <span class="time-badge">13:00 PM</span>
+                <h3>Transfer & Check-in: Hotel Aquamarine</h3>
+                <p>Arrival at Moscow (SVO). Take a <a href="https://taxi.yandex.ru/" target="_blank"
+                        style="color: var(--accent-green); text-decoration: underline; font-weight: 700;">Yandex Go</a>
+                    taxi from the airport to your hotel.</p>
+                <div class="flight-info" style="border-style: solid; border-color: var(--accent-green);">
+                    <p><strong>Hotel:</strong> Aquamarine</p>
+                    <p><strong>Contact:</strong> <a href="tel:+74955802828"
+                            style="color: var(--accent-green); text-decoration: none; font-weight: 700;">+7 495
+                            580-28-28</a></p>
+                </div>
+                <a href="https://drive.google.com/file/d/1uDPtZk9a9k-qGhqvUDkKn7dkYHs2rjhJ/view?usp=sharing"
+                    target="_blank" class="help-btn"
+                    style="background: var(--accent-green); color: var(--bg-dark); text-decoration: none; display: inline-block; margin-top: 1rem;">🏨
+                    View Booking Confirmation</a>
+            </div>
+        </div>
+
+        <div class="itinerary-step">
+            <div class="step-number">20</div>
+            <div class="itinerary-card card glass step-content" style="border: 1px solid var(--accent-purple);">
+                <span class="time-badge">Evening</span>
+                <h3>Moscow Landmark Tour</h3>
+                <p>A final evening stroll through the historic heart of Russia.</p>
+                <div class="flight-info" style="border-left: 4px solid var(--accent-purple);">
+                    <p>📍 <strong>Red Square:</strong> Cinematic views of St. Basil’s Cathedral at night.</p>
+                    <p>📍 <strong>The Kremlin:</strong> Explore the fortress grounds and exterior architecture.</p>
+                    <p>📍 <strong>Lenin Mausoleum:</strong> View from the square. (Note: Usually open 10:00-13:00;
+                        expected closure for restoration in 2026).</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- DAY 8 -->
+        <div class="day-header">
+            <h2>Day 8: Wednesday, April 1st</h2>
+            <p style="color: var(--text-muted);">Souvenirs & Final Departure</p>
+        </div>
+
+        <div class="itinerary-step">
+            <div class="step-number">21</div>
+            <div class="itinerary-card card glass step-content">
+                <span class="time-badge">Morning / Daytime</span>
+                <h3>Izmailovsky Market Shopping</h3>
+                <p>Take a <a href="https://taxi.yandex.ru/" target="_blank"
+                        style="color: var(--accent-green); text-decoration: underline; font-weight: 700;">Yandex Go</a>
+                    taxi to the famous Izmailovsky Market for souvenir shopping (Matryoshka dolls, fur hats, local
+                    crafts).</p>
+                <p style="margin-top: 0.5rem; color: var(--text-muted);">Enjoy the fairy-tale wooden architecture of the
+                    Izmailovo Kremlin while you shop.</p>
+            </div>
+        </div>
+
+        <div class="itinerary-step">
+            <div class="step-number">22</div>
+            <div class="itinerary-card card glass step-content" style="border: 1px solid var(--accent-purple);">
+                <span class="time-badge">22:05 PM</span>
+                <h3>Final Departure Flight</h3>
+                <p>Transfer to <strong>Sheremetyevo Airport (SVO)</strong> Terminal C via <a
+                        href="https://taxi.yandex.ru/" target="_blank"
+                        style="color: var(--accent-green); text-decoration: underline; font-weight: 700;">Yandex Go</a>
+                    taxi.</p>
+                <div class="flight-info">
+                    <p><strong>Departure:</strong> 22:05 (SVO - Terminal C)</p>
+                    <p><strong>Layover:</strong> Muscat (3 hours)</p>
+                    <p><strong>Arrival (Day 9):</strong> 13:40 (Kochi - Terminal 3)</p>
+                </div>
+                <a href="https://drive.google.com/file/d/1e_ENY5ETwuT0LndsgC67gvLeaT-Ysxyn/view?usp=sharing"
+                    target="_blank" class="help-btn"
+                    style="background: var(--accent-purple); color: white; text-decoration: none; display: inline-block;">📄
+                    View Ticket</a>
+            </div>
+        </div>
+
+        <div
+            style="margin-top: 4rem; padding: 2rem; background: rgba(55, 255, 139, 0.05); border-radius: 20px; border: 1px solid var(--accent-green);">
+            <h2 style="color: var(--accent-green); margin-top: 0;">📞 Support & Emergency Contacts</h2>
+            <div
+                style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; margin-top: 1.5rem;">
+                <div class="glass" style="padding: 1rem;">
+                    <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 0.5rem;">Murmansk Local
+                        Support</p>
+                    <a href="tel:+79110604747"
+                        style="color: white; text-decoration: none; font-size: 1.2rem; font-weight: 700;">+7 911
+                        060-47-47</a>
+                </div>
+                <div class="glass" style="padding: 1rem;">
+                    <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 0.5rem;">Nomadller Support</p>
+                    <a href="tel:7902663277"
+                        style="color: white; text-decoration: none; font-size: 1.2rem; font-weight: 700;">+7 902
+                        663-27-77</a>
+                </div>
+                <div class="glass" style="padding: 1rem;">
+                    <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 0.5rem;">Emergency Contact</p>
+                    <a href="tel:8129163766"
+                        style="color: white; text-decoration: none; font-size: 1.2rem; font-weight: 700;">812
+                        916-37-66</a>
+                </div>
+            </div>
+        </div>
+
+        <div
+            style="margin-top: 3rem; padding: 2rem; background: rgba(192, 132, 252, 0.1); border-radius: 20px; border: 1px solid var(--accent-purple);">
+            <h2 style="color: var(--accent-purple); margin-top: 0;">🛡️ Solo Traveler Essentials</h2>
+            <ul style="color: var(--text-main); line-height: 1.8; padding-left: 1.5rem;">
+                <li><strong>Cash is King:</strong> International Visa/Mastercard won't work. Bring USD/Euro cash to
+                    exchange for Rubles immediately. We recommend using <strong>Komkom Bank</strong> for reliable
+                    exchange rates.</li>
+                <li><strong>Stay Connected:</strong> Buy a local SIM card (MTS or Megafon) at SVO airport. It's cheap
+                    and essential for Yandex Go.</li>
+                <li><strong>Offline Translation:</strong> Download <strong>Yandex Translate</strong> with the offline
+                    Russian pack. You can use the "Camera" mode to read menus.</li>
+                <li><strong>Documents:</strong> Always carry your physical passport and the <strong>Migration
+                        Card</strong> (small white slip given at immigration). <strong>DO NOT LOSE THE MIGRATION
+                        CARD;</strong> you cannot check into hotels without it.</li>
+                <li><strong>Safe Routes:</strong> Stick to the pinned Yandex Maps locations. Murmansk and St. Petersburg
+                    are very safe, but avoid wandering into industrial dock areas alone at night.</li>
+            </ul>
+        </div>
+
+        <div
+            style="margin-top: 3rem; padding: 2rem; background: rgba(55, 255, 139, 0.1); border-radius: 20px; border: 1px solid var(--accent-green);">
+            <h2 style="color: var(--accent-green); margin-top: 0;">📥 All Travel Documents</h2>
+            <p style="color: var(--text-muted); margin-bottom: 2rem;">Quick links to all your tickets and hotel
+                confirmations.</p>
+
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem;">
+                <!-- Flight Category -->
+                <div class="glass" style="padding: 1.5rem;">
+                    <h4
+                        style="color: var(--accent-purple); margin-top: 0; border-bottom: 1px solid rgba(192, 132, 252, 0.3); padding-bottom: 0.5rem;">
+                        ✈️ Flight Tickets</h4>
+                    <ul style="list-style: none; padding: 0; margin: 1rem 0 0 0;">
+                        <li style="margin-bottom: 1rem;"><a
+                                href="https://drive.google.com/file/d/1e_ENY5ETwuT0LndsgC67gvLeaT-Ysxyn/view?usp=sharing"
+                                target="_blank" style="color: white; text-decoration: none; font-size: 0.9rem;">↳ Kochi
+                                ➔ Moscow / Return</a></li>
+                        <li style="margin-bottom: 1rem;"><a
+                                href="https://drive.google.com/file/d/1TSrAzSTURoOvHW9WDwGgNNn9aXfUqGFg/view?usp=sharing"
+                                target="_blank" style="color: white; text-decoration: none; font-size: 0.9rem;">↳ Moscow
+                                ➔ Murmansk</a></li>
+                        <li style="margin-bottom: 1rem;"><a
+                                href="https://drive.google.com/file/d/1IFCrh6mZD-ZyIpDzXTdWbrL4Q8VPyUWI/view?usp=sharing"
+                                target="_blank" style="color: white; text-decoration: none; font-size: 0.9rem;">↳
+                                Murmansk ➔ St. Petersburg</a></li>
+                        <li style="margin-bottom: 1rem;"><a
+                                href="https://drive.google.com/file/d/1nLuGS77tvcoHFU1pzguNCD5E6KhB1Bwd/view?usp=sharing"
+                                target="_blank" style="color: white; text-decoration: none; font-size: 0.9rem;">↳ St.
+                                Petersburg ➔ Moscow</a></li>
+                    </ul>
+                </div>
+
+                <!-- Hotel Category -->
+                <div class="glass" style="padding: 1.5rem;">
+                    <h4
+                        style="color: var(--accent-green); margin-top: 0; border-bottom: 1px solid rgba(55, 255, 139, 0.3); padding-bottom: 0.5rem;">
+                        🏨 Hotel Bookings</h4>
+                    <ul style="list-style: none; padding: 0; margin: 1rem 0 0 0;">
+                        <li style="margin-bottom: 1rem;"><a
+                                href="https://drive.google.com/file/d/1-C419VmCr-amWgcVIZhiQH9C8yxwtXCt/view?usp=sharing"
+                                target="_blank" style="color: white; text-decoration: none; font-size: 0.9rem;">↳
+                                Murmansk Hotel</a></li>
+                        <li style="margin-bottom: 1rem;"><a
+                                href="https://drive.google.com/file/d/15fbvfUfNc8Jttu8-5hHC2okrKLlGCxqZ/view?usp=sharing"
+                                target="_blank" style="color: white; text-decoration: none; font-size: 0.9rem;">↳
+                                Teriberka Overnight</a></li>
+                        <li style="margin-bottom: 1rem;"><a
+                                href="https://drive.google.com/file/d/1chQxKEVfjuQ5IWpGrW5z3V6lY4G0tWWi/view?usp=sharing"
+                                target="_blank" style="color: white; text-decoration: none; font-size: 0.9rem;">↳ St.
+                                Petersburg: Rossi Hotel</a></li>
+                        <li style="margin-bottom: 1rem;"><a
+                                href="https://drive.google.com/file/d/1uDPtZk9a9k-qGhqvUDkKn7dkYHs2rjhJ/view?usp=sharing"
+                                target="_blank" style="color: white; text-decoration: none; font-size: 0.9rem;">↳
+                                Moscow: Hotel Aquamarine</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- NEW: WEATHER & GEAR -->
+        <div
+            style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 4rem;">
+            <div class="glass" style="padding: 2rem; border: 1px solid var(--accent-purple);">
+                <h3 style="color: var(--accent-purple); margin-top: 0;">🌡️ Arctic Weather (March/April)</h3>
+                <div style="display: flex; justify-content: space-between; margin-top: 1rem;">
+                    <div>
+                        <p style="font-size: 0.8rem; color: var(--text-muted);">Murmansk</p>
+                        <p style="font-size: 1.5rem; font-weight: 700;">-5°C to -12°C</p>
+                    </div>
+                    <div>
+                        <p style="font-size: 0.8rem; color: var(--text-muted);">St. Petersburg</p>
+                        <p style="font-size: 1.5rem; font-weight: 700;">0°C to +5°C</p>
+                    </div>
+                </div>
+                <p style="font-size: 0.9rem; margin-top: 1rem; color: var(--text-muted);">*Wind chill in Teriberka can
+                    make it feel much colder. Keep your layers on!</p>
+            </div>
+
+            <div class="glass" style="padding: 2rem; border: 1px solid var(--accent-green);">
+                <h3 style="color: var(--accent-green); margin-top: 0;">🇷🇺 Survival Russian</h3>
+                <table style="width: 100%; border-collapse: collapse; font-size: 0.9rem;">
+                    <tr style="border-bottom: 1px solid rgba(255,255,255,0.1);">
+                        <td style="padding: 0.5rem 0;">Hello</td>
+                        <td style="padding: 0.5rem 0; color: var(--accent-green);">Zdrav-stvuy-te</td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid rgba(255,255,255,0.1);">
+                        <td style="padding: 0.5rem 0;">Thank you</td>
+                        <td style="padding: 0.5rem 0; color: var(--accent-green);">Spa-si-ba</td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid rgba(255,255,255,0.1);">
+                        <td style="padding: 0.5rem 0;">Where is...?</td>
+                        <td style="padding: 0.5rem 0; color: var(--accent-green);">Gdye na-kho-dit-sya...?</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 0.5rem 0;">Help!</td>
+                        <td style="padding: 0.5rem 0; color: var(--accent-green);">Po-mo-gi-te!</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <!-- NEW: QUICK MAP PINS -->
+        <div style="margin-top: 3rem; padding: 2rem; background: rgba(55, 255, 139, 0.05); border-radius: 20px;">
+            <h3 style="margin-top: 0;">📍 Quick Navigation (Yandex Maps)</h3>
+            <div style="display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 1rem;">
+                <a href="https://yandex.com/maps/-/CDuYI0YF" target="_blank" class="help-btn"
+                    style="background: rgba(255,255,255,0.1); color: white; border: 1px solid rgba(255,255,255,0.2); text-decoration: none;">Hotel
+                    Rossi (SPB)</a>
+                <a href="https://yandex.com/maps/-/CDuYI4~l" target="_blank" class="help-btn"
+                    style="background: rgba(255,255,255,0.1); color: white; border: 1px solid rgba(255,255,255,0.2); text-decoration: none;">Hotel
+                    Aquamarine (MSK)</a>
+                <a href="https://yandex.com/maps/-/CDuYIJZC" target="_blank" class="help-btn"
+                    style="background: rgba(255,255,255,0.1); color: white; border: 1px solid rgba(255,255,255,0.2); text-decoration: none;">Izmailovsky
+                    Market</a>
+                <a href="https://yandex.com/maps/-/CDuYI82a" target="_blank" class="help-btn"
+                    style="background: rgba(255,255,255,0.1); color: white; border: 1px solid rgba(255,255,255,0.2); text-decoration: none;">Red
+                    Square</a>
+            </div>
+        </div>
+
+        <!-- NEW: TRAVELER'S TOOLKIT -->
+        <div
+            style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 3rem;">
+            <div class="glass" style="padding: 2rem; border: 1px solid var(--accent-green);">
+                <h3 style="color: var(--accent-green); margin-top: 0;">📱 Essential Apps Checklist</h3>
+                <ul style="list-style: none; padding: 0; font-size: 0.9rem; color: var(--text-main);">
+                    <li style="margin-bottom: 0.8rem;">✅ <strong>Yandex Go:</strong> For Taxis (Must-have).</li>
+                    <li style="margin-bottom: 0.8rem;">✅ <strong>Yandex Maps:</strong> Best for Russia navigation.</li>
+                    <li style="margin-bottom: 0.8rem;">✅ <strong>Yandex Translate:</strong> (Offline pack enabled).</li>
+                    <li style="margin-bottom: 0.8rem;">✅ <strong>Telegram/WhatsApp:</strong> For Nomadller support.</li>
+                    <li style="margin-bottom: 0.8rem;">✅ <strong>Xe Currency:</strong> For Ruble conversions.</li>
+                </ul>
+            </div>
+
+            <div class="glass" style="padding: 2rem; border: 1px solid var(--accent-purple);">
+                <h3 style="color: var(--accent-purple); margin-top: 0;">💡 Quick Pro-Tips</h3>
+                <ul
+                    style="list-style: disc; padding-left: 1.2rem; font-size: 0.9rem; color: var(--text-muted); line-height: 1.6;">
+                    <li><strong>Plugs:</strong> Russia uses European Type C/F (Two-pin).</li>
+                    <li><strong>Water:</strong> Do not drink tap water; buy bottled water.</li>
+                    <li><strong>Tipping:</strong> 10-15% is standard in restaurants.</li>
+                    <li><strong>Photography:</strong> Avoid taking photos of police, military, or airport security.</li>
+                    <li><strong>Emergency:</strong> Dial <strong>112</strong> for all emergency services.</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- NEW: GOURMET GUIDE -->
+        <div
+            style="margin-top: 3rem; padding: 2rem; background: rgba(255, 171, 0, 0.05); border-radius: 20px; border: 1px solid #ffab00;">
+            <h2 style="color: #ffab00; margin-top: 0;">🍴 Gourmet Russian & Arctic Flavors</h2>
+            <p style="color: var(--text-muted); margin-bottom: 2rem;">Don't leave Russia without trying these regional
+                specialties!</p>
+
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem;">
+                <!-- Murmansk/Arctic -->
+                <div class="glass" style="padding: 1.5rem;">
+                    <h4 style="color: var(--accent-purple); margin-top: 0;">❄️ Arctic Delicacies</h4>
+                    <ul style="list-style: none; padding: 0; margin: 1rem 0 0 0; font-size: 0.9rem; line-height: 1.6;">
+                        <li>🥩 <strong>Venison (Reindeer):</strong> Try it as a steak or in a stew.</li>
+                        <li>🦀 <strong>King Crab:</strong> Murmansk is world-famous for its fresh crab.</li>
+                        <li>🫐 <strong>Cloudberries:</strong> A rare "Arctic Gold" berry, great in tea or jam.</li>
+                        <li>🐟 <strong>Cod/Halibut:</strong> Freshly caught from the Barents Sea.</li>
+                    </ul>
+                </div>
+
+                <!-- St. Petersburg/Moscow -->
+                <div class="glass" style="padding: 1.5rem;">
+                    <h4 style="color: var(--accent-green); margin-top: 0;">🏙️ City Classics</h4>
+                    <ul style="list-style: none; padding: 0; margin: 1rem 0 0 0; font-size: 0.9rem; line-height: 1.6;">
+                        <li>🍩 <strong>Pyshki:</strong> Traditional Soviet-style donuts (Must-try in SPB!).</li>
+                        <li>🥘 <strong>Beef Stroganoff:</strong> A creamy classic born in St. Petersburg.</li>
+                        <li>🥟 <strong>Pelmeni:</strong> Delicious meat dumplings served with sour cream.</li>
+                        <li>🥞 <strong>Blini:</strong> Russian pancakes with caviar or sweet condensed milk.</li>
+                    </ul>
+                </div>
+            </div>
+            <p style="margin-top: 1.5rem; font-size: 0.85rem; color: var(--text-muted);">💡 <strong>Pro Tip:</strong>
+                Most hotel restaurants in Murmansk serve excellent local seafood if you don't want to wander far!</p>
+        </div>
+
+        <div style="height: 100px;"></div>
+    </main>
+
+    <!-- Navigation Help Modal -->
+    <div class="modal-overlay" id="overlay" onclick="hideHelp()"></div>
+    <div id="terminal-help" class="glass">
+        <span class="close-btn" onclick="hideHelp()">&times;</span>
+        <h2 style="text-align: left; font-size: 2rem;">Terminal C ➔ Terminal B</h2>
+        <p>Follow signs for <strong>"Terminal B"</strong> or <strong>"Inter-terminal Subway"</strong>.</p>
+        <p style="margin-top: 1rem;">Take the automated underground train. It's a 4-minute ride from C to B.</p>
+
+        <div class="russian-text">
+            <p><strong>Ask for help (Russian):</strong></p>
+            <p style="font-size: 1.4rem; font-weight: 700;">Как добраться до терминала B?</p>
+            <p style="font-size: 0.9rem;">(Kak dobratsya do terminala V?)</p>
+        </div>
+
+        <div class="russian-text"
+            style="background: rgba(192, 132, 252, 0.1); color: var(--accent-purple); margin-top: 1rem;">
+            <p><strong>I am lost:</strong></p>
+            <p style="font-size: 1.4rem; font-weight: 700;">Я заблудился, помогите мне.</p>
+            <p style="font-size: 0.9rem;">(Ya zabludilsya, pomogite mne.)</p>
+        </div>
+    </div>
+
+    <script>
+        function showHelp() {
+            document.getElementById('terminal-help').style.display = 'block';
+            document.getElementById('overlay').style.display = 'block';
+        }
+        function hideHelp() {
+            document.getElementById('terminal-help').style.display = 'none';
+            document.getElementById('overlay').style.display = 'none';
+        }
+    </script>
+
+    <footer>
+        <p>&copy; 2026 Arctic Glow Travel Guide. Explore Murmansk with Us.</p>
+    </footer>
+</body>
+
+</html>
